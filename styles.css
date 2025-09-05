@@ -122,7 +122,25 @@
   gap: 2rem;
   justify-content: center;
   align-items: stretch;
-}
+  }
+
+  .project-card {
+    transition: filter 0.3s, transform 0.3s;
+  }
+  .project-card.blurred {
+    filter: blur(3px) grayscale(30%);
+    opacity: 0.7;
+  }
+  .project-card:hover {
+    z-index: 2;
+    transform: scale(1.04);
+    filter: none;
+  }
+  .projects-container:hover .project-card:not(:hover) {
+    filter: blur(3px) grayscale(30%);
+    opacity: 0.7;
+  }
+
 
 .project-card {
   background: #fff;
@@ -225,13 +243,17 @@
 }
 
 .project-card-header {
-  background: linear-gradient(90deg, #f06292 0%, #f06292 100%);
-  color: #fff;
+  background: none;
+  color: #263238;
   font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
-  font-size: 1.1rem;
-  font-weight: 500;
+  font-size: 1.35rem;
+  font-weight: 600;
   text-align: center;
-  padding: 1.2rem 0.5rem 1.2rem 0.5rem;
+  padding: 1.2rem 0.5rem 0.5rem 0.5rem;
+  letter-spacing: 0.5px;
+  text-transform: none;
+  margin-bottom: 0.5rem;
+  text-shadow: none;
 }
 
 .project-card-body {
@@ -284,7 +306,16 @@
   flex-direction: column;
   align-items: flex-start;
   position: relative;
+    transition: transform 0.3s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s;
 }
+  .skill-card-horizontal:hover {
+    transform: translateY(-10px) scale(1.04);
+    box-shadow: 0 8px 24px rgba(255, 105, 180, 0.15), 0 1.5px 6px rgba(0,0,0,0.08);
+  }
+  .skill-card-horizontal:hover .progress-bar {
+    background: linear-gradient(90deg, #ff7eb3 0%, #ff65a3 100%);
+    box-shadow: 0 0 8px #ff7eb380;
+  }
 
 .skill-card-horizontal span {
   font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
@@ -307,7 +338,7 @@
   width: 0;
   background: linear-gradient(90deg, #f06292 0%, #f8bbd0 100%);
   border-radius: 4px;
-  transition: width 1.2s cubic-bezier(.4,0,.2,1);
+  transition: width 1.2s cubic-bezier(.4,0,.2,1), background 0.3s, box-shadow 0.3s;
 }
 
 .skill-percent {

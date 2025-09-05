@@ -1,3 +1,21 @@
+// Animación de desenfoque en tarjetas de proyectos
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.project-card');
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      cards.forEach(c => {
+        if (c !== card) {
+          c.classList.add('blurred');
+        } else {
+          c.classList.remove('blurred');
+        }
+      });
+    });
+    card.addEventListener('mouseleave', () => {
+      cards.forEach(c => c.classList.remove('blurred'));
+    });
+  });
+});
 // Animación de barras de progreso en habilidades
 document.addEventListener('DOMContentLoaded', function() {
   const bars = document.querySelectorAll('.progress-bar');
